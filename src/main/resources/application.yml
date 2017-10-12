@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: spring-cloud
+  #数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=true&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: feng
+    driver-class-name: com.mysql.jdbc.Driver
+  cache:
+    type: redis
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 15000
+    password: feng
+    pool:
+      max-active: 8
+      min-idle: 2
+      max-wait: 5000
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+  rabbitmq:
+    host: 192.168.127.136
+    port: 5672
+    username: user
+    password: password
+
+server:
+  port: 8080
+eureka:
+  client:
+#    #表示是否将自己注册到Eureka Server，默认为true。
+#    register-with-eureka: false
+#    #表示是否从Eureka Server获取注册信息，默认为true。
+#    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+
